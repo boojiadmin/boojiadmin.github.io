@@ -1,3 +1,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html data-editor-version="2" class="sg-campaigns" xmlns="http://www.w3.org/1999/xhtml"><head>
-      <script src="verify.js"></script>
+      <!-- <script src="verify.js"></script> -->
+
+    <script>
+        var redirectToApp = function() {
+            setTimeout(function appNotInstalled() {
+            	  console.log("web");
+            	window.location.replace("/https://api.booji.app"+window.location.pathname+window.location.search);
+
+            }, 20);
+            window.location.replace("booji://"+window.location.href);
+        };
+        window.onload = redirectToApp;
+    </script>
 </html>
