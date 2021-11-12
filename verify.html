@@ -4,27 +4,29 @@
     <script>
         var redirectToApp = function() {
             setTimeout(function appNotInstalled() {
-            	  console.log("web");
+            	  console.log("Web");
             	  userAction();
 	              	// window.location.replace("https://api.booji.app"+window.location.pathname+window.location.search);
             	// window.location.replace("https://api.booji.app"+window.location.pathname+window.location.search);
 
             }, 20);
+             console.log("attempting app");
             window.location.replace("booji://"+window.location.href);
         };
         const userAction = async () => {
-            	  	var apiUrl = "https://api.booji.app"+window.location.pathname+window.location.search;
-  	            	  	// var apiUrl = "https://booji-api.herokuapp.com"+window.location.pathname+window.location.search;
-
-	              	  console.log(apiUrl);
-						  const response = await fetch(apiUrl, {
-						    method: 'GET'
-						  });
-						  const myJson = await response.json(); //extract JSON from the http response
-						  // do something with myJson
-		              	  console.log(myJson);
-                			window.location.replace(window.location.origin +"/changepasswordWeb");
-						}
+		 	var apiUrl = "http://localhost:8082/verify?email=1@gmail.com&code=e1114";
+    	  	// var apiUrl = "https://api.booji.app"+window.location.pathname+window.location.search;
+    	  	// var apiUrl = "https://booji-api.herokuapp.com"+window.location.pathname+window.location.search;
+    	  	window.location.replace("");
+             console.log("api call");
+			  const response = await fetch(apiUrl, {
+			    method: 'GET'
+			  });
+			  const myJson = await response.json(); //extract JSON from the http response
+			  // do something with myJson
+          	  console.log("api failed");
+    			window.location.replace(window.location.origin +"/error");
+			}
         window.onload = redirectToApp;
     </script>
 </html>
