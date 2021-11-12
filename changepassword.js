@@ -1,6 +1,6 @@
 setTimeout(function() {
   console.log("web");
-  window.location.href = "www.booji.app/changepasswordWeb.html";
+  window.location.href.replace("https://booji.app/changepasswordWeb.html");
 }, 25);
 
 // If "custom-uri://" is registered the app will launch immediately and your
