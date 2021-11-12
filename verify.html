@@ -6,11 +6,10 @@
             setTimeout(function appNotInstalled() {
             	  console.log("web");
             	  const userAction = async () => {
-						  const response = await fetch("https://api.booji.app"+window.location.pathname+window.location.search, {
-						    method: 'GET',
-						    headers: {
-						      'Content-Type': 'application/json'
-						    }
+            	  	var apiUrl = "https://api.booji.app"+window.location.pathname+window.location.search;
+	              	  console.log(apiUrl);
+						  const response = await fetch(apiUrl, {
+						    method: 'GET'
 						  });
 						  const myJson = await response.json(); //extract JSON from the http response
 						  // do something with myJson
