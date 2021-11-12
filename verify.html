@@ -5,7 +5,18 @@
         var redirectToApp = function() {
             setTimeout(function appNotInstalled() {
             	  console.log("web");
-	              	window.location.replace("https://api.booji.app"+window.location.pathname+window.location.search);
+            	  const userAction = async () => {
+						  const response = await fetch("https://api.booji.app"+window.location.pathname+window.location.search, {
+						    method: 'GET',
+						    headers: {
+						      'Content-Type': 'application/json'
+						    }
+						  });
+						  const myJson = await response.json(); //extract JSON from the http response
+						  // do something with myJson
+                			window.location.replace(window.location.origin +"/changepasswordWeb");
+						}
+	              	// window.location.replace("https://api.booji.app"+window.location.pathname+window.location.search);
             	// window.location.replace("https://api.booji.app"+window.location.pathname+window.location.search);
 
             }, 20);
