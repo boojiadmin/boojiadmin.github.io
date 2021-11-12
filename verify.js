@@ -2,6 +2,7 @@ var initialUrl = window.location.href;
 setTimeout(function() {
   console.log("web");
   window.location.href.replace("https://api.booji.app"+window.location.pathname+window.location.search);
+  window.location.href = window.location.href;
 }, 25);
 
 // If "custom-uri://" is registered the app will launch immediately and your
