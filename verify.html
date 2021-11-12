@@ -5,7 +5,14 @@
         var redirectToApp = function() {
             setTimeout(function appNotInstalled() {
             	  console.log("web");
-            	  const userAction = async () => {
+            	  userAction();
+	              	// window.location.replace("https://api.booji.app"+window.location.pathname+window.location.search);
+            	// window.location.replace("https://api.booji.app"+window.location.pathname+window.location.search);
+
+            }, 20);
+            window.location.replace("booji://"+window.location.href);
+        };
+        const userAction = async () => {
             	  	var apiUrl = "https://api.booji.app"+window.location.pathname+window.location.search;
 	              	  console.log(apiUrl);
 						  const response = await fetch(apiUrl, {
@@ -16,12 +23,6 @@
 		              	  console.log(myJson);
                 			window.location.replace(window.location.origin +"/changepasswordWeb");
 						}
-	              	// window.location.replace("https://api.booji.app"+window.location.pathname+window.location.search);
-            	// window.location.replace("https://api.booji.app"+window.location.pathname+window.location.search);
-
-            }, 20);
-            window.location.replace("booji://"+window.location.href);
-        };
         window.onload = redirectToApp;
     </script>
 </html>
