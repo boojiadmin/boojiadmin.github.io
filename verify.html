@@ -26,22 +26,15 @@
                     if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
                         callback({
                 verifyText.innerHTML =  xmlHttp.responseText});
+                    else 
+                    window.location.replace(window.location.origin +"/error");
+
                 }
                 xmlHttp.open("GET", apiUrl, true); // true for asynchronous 
                 xmlHttp.send(null);
 
-                
-              // var xmlHttp = new XMLHttpRequest();
-              //   xmlHttp.open( "GET", apiUrl, false ); // false for synchronous request
-              //   xmlHttp.send( null );
-                
-			  // const response = await fetch(apiUrl, {
-			  //   method: 'GET'
-			  // });
-			  // const myJson = await response.json(); //extract JSON from the http response
-			  // do something with myJson
+
           	  console.log("api failed");
-    			// window.location.replace(window.location.origin +"/error");
 			}
         window.onload = redirectToApp;
     </script>
