@@ -18,12 +18,16 @@
     	  	// var apiUrl = "https://booji-api.herokuapp.com"+window.location.pathname+window.location.search;
     	  	// window.location.replace("");
              console.log("api call");
-			  const response = await fetch(apiUrl, {
-			    method: 'GET'
-			  });
-			  const myJson = await response.json(); //extract JSON from the http response
+              var xmlHttp = new XMLHttpRequest();
+                xmlHttp.open( "GET", apiUrl, false ); // false for synchronous request
+                xmlHttp.send( null );
+                
+			  // const response = await fetch(apiUrl, {
+			  //   method: 'GET'
+			  // });
+			  // const myJson = await response.json(); //extract JSON from the http response
               const test = document.getElementById('verify');
-                test.innerHTML =myJson; 
+                test.innerHTML =  xmlHttp.responseText;
 			  // do something with myJson
           	  console.log("api failed");
     			// window.location.replace(window.location.origin +"/error");
