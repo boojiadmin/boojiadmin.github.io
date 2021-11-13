@@ -26,6 +26,8 @@
                         console.log("verified");
                         callback(xmlHttp.responseText);
                     }else {
+                        console.log(xmlHttp.status);
+                        console.log(xmlHttp.readyState);
                         console.log("api failed");
                         window.location.replace(window.location.origin +"/error");
                     }
