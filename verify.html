@@ -22,10 +22,10 @@
                 xmlHttp.onreadystatechange = function() { 
                     if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
                         callback(xmlHttp.responseText);
-                    } else {
-                        console.log("api failed");
-                        window.location.replace(window.location.origin +"/error");
-                    }
+                    // } else {
+                        // console.log("api failed");
+                        // window.location.replace(window.location.origin +"/error");
+                    // }
                 }
                 xmlHttp.open("GET", apiUrl, true); // true for asynchronous 
                 xmlHttp.send(null);
