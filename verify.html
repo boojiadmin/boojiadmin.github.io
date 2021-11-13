@@ -1,5 +1,4 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html data-editor-version="2" class="sg-campaigns" xmlns="http://www.w3.org/1999/xhtml"><head>
-      <!-- <script src="verify.js"></script> -->
     <script>
         var redirectToApp = function() {
             setTimeout(function appNotInstalled() {
@@ -22,10 +21,10 @@
                 xmlHttp.onreadystatechange = function() { 
                     if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
                         callback(xmlHttp.responseText);
-                    // } else {
-                        // console.log("api failed");
-                        // window.location.replace(window.location.origin +"/error");
-                    // }
+                    } else {
+                        console.log("api failed");
+                        window.location.replace(window.location.origin +"/error");
+                    }
                 }
                 xmlHttp.open("GET", apiUrl, true); // true for asynchronous 
                 xmlHttp.send(null);
