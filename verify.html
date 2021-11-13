@@ -22,10 +22,14 @@
 			    method: 'GET'
 			  });
 			  const myJson = await response.json(); //extract JSON from the http response
+              const test = document.getElementById('verify');
+                test.innerHTML =myJson; 
 			  // do something with myJson
           	  console.log("api failed");
-    			window.location.replace(window.location.origin +"/error");
+    			// window.location.replace(window.location.origin +"/error");
 			}
         window.onload = redirectToApp;
     </script>
+
+    <p id="verify"> verifying request </p>
 </html>
