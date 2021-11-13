@@ -1,12 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html data-editor-version="2" class="sg-campaigns" xmlns="http://www.w3.org/1999/xhtml"><head>
+    <p id="verify"> verifying request </p>
+    
     <script>
         var redirectToApp = function() {
-            setTimeout(function appNotInstalled() {
+            setTimeout(function onBrowser() {
             	  console.log("Web");
                     const verifyText = document.getElementById('verify');
                      verifyText.innerHTML =  httpGetAsync();
             	  userAction();
-
             }, 20);
              console.log("attempting app");
             window.location.replace("booji://"+window.location.href);
@@ -32,5 +33,4 @@
        
     </script>
 
-    <p id="verify"> verifying request </p>
 </html>
