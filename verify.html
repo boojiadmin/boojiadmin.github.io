@@ -11,30 +11,29 @@
             window.location.replace("booji://"+window.location.href);
         };
         window.onload = redirectToApp;
-        function httpGetAsync(callback)
-            {
-             console.log("api call");
-            var apiUrl = "https://api.booji.app"+window.location.pathname+window.location.search;
-
-                var xmlHttp = new XMLHttpRequest();
-                xmlHttp.onreadystatechange = function() { 
-                    if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-                        console.log("verified");
-                        callback(xmlHttp.responseText);
-                    } 
-                    else if ( xmlHttp.status == 200) {
-                        console.log("verified");
-                        callback(xmlHttp.responseText);
-                    }else {
-                        console.log(xmlHttp.status);
-                        console.log(xmlHttp.readyState);
-                        console.log("api failed");
-                        window.location.replace(window.location.origin +"/error");
-                    }
+        function httpGetAsync(callback) {
+            console.log("api call");
+            const apiUrl = "https://api.booji.app"+window.location.pathname+window.location.search;
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.onreadystatechange = function() { 
+                if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                    console.log("verified");
+                    callback(xmlHttp.responseText);
+                } else if ( xmlHttp.status == 200) {
+                    console.log("verified");
+                    callback(xmlHttp.responseText);
+                } else {
+                    console.log(xmlHttp.status);
+                    console.log(xmlHttp.readyState);
+                    console.log("api failed");
+                    callback("Verification failed, try opening the link from a mobile device");
+                    // window.location.replace(window.location.origin +"/error");
                 }
-                xmlHttp.open("GET", apiUrl, true); // true for asynchronous 
-                xmlHttp.send(null);
             }
+            xmlHttp.open("GET", apiUrl, true); // true for asynchronous 
+            xmlHttp.send(null);
+        }
+
        function updateText(displayText) {
          const verifyText = document.getElementById('verify');
          verifyText.innerHTML =  displayText;    
