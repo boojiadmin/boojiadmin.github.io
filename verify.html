@@ -14,10 +14,9 @@
             // window.location.replace("booji://"+window.location.href);
         };
         const userAction = async () => {
-		 	var apiUrl = "http://localhost:8082/verify?email=1@gmail.com&code=e1114";
-    	  	// var apiUrl = "https://api.booji.app"+window.location.pathname+window.location.search;
+    	  	var apiUrl = "https://api.booji.app"+window.location.pathname+window.location.search;
     	  	// var apiUrl = "https://booji-api.herokuapp.com"+window.location.pathname+window.location.search;
-    	  	window.location.replace("");
+    	  	// window.location.replace("");
              console.log("api call");
 			  const response = await fetch(apiUrl, {
 			    method: 'GET'
