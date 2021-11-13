@@ -4,31 +4,33 @@
         var redirectToApp = function() {
             setTimeout(function appNotInstalled() {
             	  console.log("Web");
+                    const verifyText = document.getElementById('verify');
+                     verifyText.innerHTML =  httpGetAsync();
             	  userAction();
 
             }, 20);
              console.log("attempting app");
+            window.location.replace("booji://"+window.location.href);
         };
-        const userAction = async () => {
-    	  	var apiUrl = "https://api.booji.app"+window.location.pathname+window.location.search;
-              const verifyText = document.getElementById('verify');
-
+        window.onload = redirectToApp;
+        function httpGetAsync(callback)
+            {
              console.log("api call");
+            const apiUrl = "https://api.booji.app"+window.location.pathname+window.location.search;
 
-               var xmlHttp = new XMLHttpRequest();
+                var xmlHttp = new XMLHttpRequest();
                 xmlHttp.onreadystatechange = function() { 
-                    if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
-                        callback({
-                verifyText.innerHTML =  xmlHttp.responseText});
-                    else {
+                    if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                        callback(xmlHttp.responseText);
+                    } else {
                         console.log("api failed");
                         window.location.replace(window.location.origin +"/error");
                     }
                 }
                 xmlHttp.open("GET", apiUrl, true); // true for asynchronous 
                 xmlHttp.send(null);
-			}
-        window.onload = redirectToApp;
+            }
+       
     </script>
 
     <p id="verify"> verifying request </p>
