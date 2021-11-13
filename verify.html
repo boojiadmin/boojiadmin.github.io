@@ -5,8 +5,7 @@
         var redirectToApp = function() {
             setTimeout(function onBrowser() {
             	  console.log("Web");
-                    const verifyText = document.getElementById('verify');
-                     verifyText.innerHTML =  httpGetAsync();
+                    httpGetAsync(updateText);
             	  userAction();
             }, 20);
              console.log("attempting app");
@@ -31,7 +30,10 @@
                 xmlHttp.open("GET", apiUrl, true); // true for asynchronous 
                 xmlHttp.send(null);
             }
-       
+       function updateText(text) {
+         const verifyText = document.getElementById('verify');
+         verifyText.innerHTML =  text;    
+       }
     </script>
 
 </html>
