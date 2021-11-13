@@ -1,24 +1,18 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html data-editor-version="2" class="sg-campaigns" xmlns="http://www.w3.org/1999/xhtml"><head>
       <!-- <script src="verify.js"></script> -->
-
     <script>
         var redirectToApp = function() {
             setTimeout(function appNotInstalled() {
             	  console.log("Web");
             	  userAction();
-	              	// window.location.replace("https://api.booji.app"+window.location.pathname+window.location.search);
-            	// window.location.replace("https://api.booji.app"+window.location.pathname+window.location.search);
 
             }, 20);
              console.log("attempting app");
-            // window.location.replace("booji://"+window.location.href);
         };
         const userAction = async () => {
     	  	var apiUrl = "https://api.booji.app"+window.location.pathname+window.location.search;
               const verifyText = document.getElementById('verify');
 
-    	  	// var apiUrl = "https://booji-api.herokuapp.com"+window.location.pathname+window.location.search;
-    	  	// window.location.replace("");
              console.log("api call");
 
                var xmlHttp = new XMLHttpRequest();
@@ -26,15 +20,13 @@
                     if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
                         callback({
                 verifyText.innerHTML =  xmlHttp.responseText});
-                    else 
-                    window.location.replace(window.location.origin +"/error");
-
+                    else {
+                        console.log("api failed");
+                        window.location.replace(window.location.origin +"/error");
+                    }
                 }
                 xmlHttp.open("GET", apiUrl, true); // true for asynchronous 
                 xmlHttp.send(null);
-
-
-          	  console.log("api failed");
 			}
         window.onload = redirectToApp;
     </script>
