@@ -22,7 +22,11 @@
                     if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
                         console.log("verified");
                         callback(xmlHttp.responseText);
-                    } else {
+                    } 
+                    else if ( xmlHttp.status == 200) {
+                        console.log("verified");
+                        callback(xmlHttp.responseText);
+                    }else {
                         console.log("api failed");
                         window.location.replace(window.location.origin +"/error");
                     }
