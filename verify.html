@@ -14,7 +14,7 @@
         function httpGetAsync(callback)
             {
              console.log("api call");
-            const apiUrl = "https://api.booji.app"+window.location.pathname+window.location.search;
+            var apiUrl = "https://api.booji.app"+window.location.pathname+window.location.search;
 
                 var xmlHttp = new XMLHttpRequest();
                 xmlHttp.onreadystatechange = function() { 
@@ -35,9 +35,9 @@
                 xmlHttp.open("GET", apiUrl, true); // true for asynchronous 
                 xmlHttp.send(null);
             }
-       function updateText(text) {
+       function updateText(displayText) {
          const verifyText = document.getElementById('verify');
-         verifyText.innerHTML =  text;    
+         verifyText.innerHTML =  displayText;    
        }
     </script>
 
